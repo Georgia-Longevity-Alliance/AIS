@@ -15,7 +15,8 @@ AIS/                           # Root: core files only
 │   ├── Cargo.toml
 │   ├── Cargo.lock
 │   └── src/
-│       ├── lib.rs             # Public API
+│       ├── lib.rs             # Public API + prelude
+│       ├── types.rs           # Shared types + serde
 │       ├── passport.rs        # Passport struct
 │       ├── body_law.rs        # 6-layer validator
 │       ├── flight_recorder.rs # Ring buffer
@@ -24,60 +25,35 @@ AIS/                           # Root: core files only
 │       ├── event_store.rs     # Append-only log
 │       ├── validator.rs       # Delta validator
 │       ├── consolidator.rs    # Knowledge consolidation
-│       ├── renderer.rs        # Article renderer
-│       └── types.rs           # Shared types + serde
+│       └── renderer.rs        # Article renderer
 │
 ├── py_backend/                # Python — AI/ML + HTTP
 │   ├── requirements.txt
-│   ├── setup.py
-│   ├── aisocket/
-│   │   ├── __init__.py
-│   │   ├── client.py          # Registry HTTP client
-│   │   ├── llm_bridge.py      # LLM ↔ AISocket
-│   │   ├── noepedia_api.py    # Noepedia client
-│   │   ├── anomaly.py         # Anomaly detection
-│   │   └── prompts.py         # Standard LLM prompts
-│   └── tests/
-│       ├── test_client.py
-│       ├── test_llm_bridge.py
-│       └── test_noepedia.py
+│   └── aisocket/
+│       ├── __init__.py
+│       ├── client.py          # Registry HTTP client
+│       ├── llm_bridge.py      # LLM ↔ AISocket
+│       └── noepedia_api.py    # Noepedia client
 │
 ├── web/                        # Elixir/Phoenix — Dashboard
 │   ├── mix.exs
 │   ├── mix.lock
 │   ├── config/
 │   ├── lib/
-│   │   ├── ais_web.ex
-│   │   ├── ais_web/
-│   │   │   ├── endpoint.ex
-│   │   │   ├── router.ex
-│   │   │   ├── pages/
-│   │   │   │   ├── dashboard_live.ex
-│   │   │   │   ├── device_live.ex
-│   │   │   │   └── knowledge_live.ex
-│   │   │   └── components/
-│   │   └── ais/
-│   │       ├── registry.ex     # Device registry
-│   │       ├── knowledge.ex    # Noepedia client
-│   │       └── socket_client.ex # Rust core bridge
+│   │   ├── web.ex
+│   │   ├── web_web.ex
+│   │   └── web_web/
+│   │       ├── router.ex
+│   │       ├── endpoint.ex
+│   │       ├── live/
+│   │       │   ├── dashboard_live.ex
+│   │       │   └── device_live.ex
+│   │       └── controllers/
+│   │           └── api_controller.ex
 │   └── test/
 │
 ├── integration/                # End-to-end tests
-│   └── argus_os1/
-│       ├── passport_argus.json # ARGUS-OS1 passport
-│       ├── simulate_run.py     # 100-embryo simulation
-│       └── test_anomalies.py   # Anomaly injection tests
-│
 ├── docs/                       # Documentation
-│   ├── ARCHITECTURE.md
-│   ├── API_REFERENCE.md
-│   ├── CONTRIBUTING.md
-│   └── GLOSSARY.md
-│
 ├── scripts/                    # Utility scripts
-│   ├── autofix.sh
-│   ├── setup_dev.sh
-│   └── run_tests.sh
-│
-└── _archive/                   # Superseded files
+└── _archive/                   # Reference: AISocket_ref, Noepedia_ref
 ```
