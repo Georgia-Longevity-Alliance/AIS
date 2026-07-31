@@ -1,0 +1,33 @@
+# Ignore build artifacts, dependencies, and sensitive files.
+
+# Rust
+core/target/
+
+# Python
+py_backend/__pycache__/
+py_backend/*.pyc
+py_backend/.venv/
+py_backend/venv/
+
+# Elixir/Phoenix
+web/_build/
+web/deps/
+web/.elixir_ls/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive files — NEVER commit
+*.pem
+*.key
+credentials.json
+.env
+.env.local
+
+# Archives
+_archive/

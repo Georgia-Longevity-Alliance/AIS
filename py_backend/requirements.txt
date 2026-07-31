@@ -1,0 +1,10 @@
+# AIS Python Backend
+# LLM Bridge, HTTP Client, and ML Integration
+
+aisocket>=0.1.0
+requests>=2.31
+pydantic>=2
+httpx>=0.25
+openai>=1.0
+google-generativeai>=0.8
+numpy>=1.24
